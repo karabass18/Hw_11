@@ -6,15 +6,18 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class SelenideOnGithubTest {
     @BeforeEach
     public void startSet() {
+
         open("https://github.com/selenide/selenide");
         $("#wiki-tab").click();
-        sleep(200);
-        $(".js-wiki-more-pages-link").click();
+        // sleep(200);
+        $(withText("more pages")).click();
 
     }
 
